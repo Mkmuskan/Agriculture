@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0);
+
+        }
+
+        body {
+            overflow-x: hidden; /* Prevents horizontal body scroll */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Wrapper to contain horizontal scroll */
+        .horizontal-scroll-wrapper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Content that moves horizontally */
+        .horizontal-scroll-content {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 10590px; /* Adjust width based on the number of items */
+            height: 200vh;
+            transform: translateX(0);
+            transition: transform 0.5s ease-out;
+        }
+
+
+        /* Background colors for different items */
+        .scroll-item:nth-child(1) { background: #00000000; } 
+        .scroll-item:nth-child(2) { background: #00000000; }
+        .scroll-item:nth-child(3) { background: #00000000; }
+        .scroll-item:nth-child(4) { background: #00000000; } 
+        .scroll-item:nth-child(5) { background: #00000000; }
+        .scroll-item:nth-child(6) { background: #00000000; }
+        .scroll-item:nth-child(7) { background: #00000000; }
+        .scroll-item:nth-child(8) { background: #00000000; }
+
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="horizontal-scroll-wrapper">
+        <div class="horizontal-scroll-content">
+            <div class="scroll-item" id="page-1">
+
+                <div class="slider-container">
+        
+                    <!-- Header -->
+                    <div class="header fade-in" id="header">
+                        <div class="logo">
+                            <img class="logo-icon" src="images/logo.png" alt="Logo">
+                        </div>
+                        <div class="navbar">
+                            <a href="#">Home</a>
+                            <a href="#">Page</a>
+                            <a href="#">Portfolio</a>
+                            <a href="#">Shop</a>
+                            <a href="#">Services</a>
+                            <a href="#">Blog</a>
+                            <a href="#">Contact</a>
+                        </div>
+                        <a href="#" class="btn">Get in Touch!</a>
+                    </div>
+            
+                    <div class="slides">
+                        <div class="slide">
+                            <img src="images/no-one-cares-l_5MJnbrmrs-unsplash.jpg" alt="Agriculture Image 1">
+                        </div>
+                        <div class="slide">
+                            <img src="images/nature-3526840_1920.jpg" alt="Agriculture Image 2">
+                        </div>
+                    </div>
+                    
+                    <!-- Overlay Text -->
+                    <div class="content fade-in" id="content">
+                        <div class="small-heading">Better Agriculture for a Better Future</div>
+                        <div class="big-heading">Every Crop Counts, Every Farmer Matters.</div>
+                        <p class="paragraph">
+                            The paramount doctrine of the economic and technological euphoria of recent decades 
+                            has been that everything depends on innovation.
+                        </p>
+                    </div class=arrows>
+            
+                    <!-- Navigation Buttons -->
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+            
+                <script>
+                    let slideIndex = 0;
+                    const slides = document.querySelector(".slides");
+                    const totalSlides = document.querySelectorAll(".slide").length;
+                    const header = document.getElementById("header");
+                    const content = document.getElementById("content");
+            
+                    function nextSlide() {
+                        fadeOutElements(); // Start fade-out
+                        setTimeout(() => {
+                            slideIndex = (slideIndex + 1) % totalSlides;
+                            updateSlide();
+                            fadeInElements(); // Fade-in after slide changes
+                        }, 700);
+                    }
+            
+                    function prevSlide() {
+                        fadeOutElements();
+                        setTimeout(() => {
+                            slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+                            updateSlide();
+                            fadeInElements();
+                        }, 700);
+                    }
+            
+                    function updateSlide() {
+                        slides.style.transform = `translateX(-${slideIndex * 100}vw)`;
+                    }
+            
+                    function fadeOutElements() {
+                        // header.classList.remove("fade-in");
+                        content.classList.remove("fade-in");
+                        // header.classList.add("fade-out");
+                        content.classList.add("fade-out");
+                    }
+            
+                    function fadeInElements() {
+                        header.classList.remove("fade-out");
+                        content.classList.remove("fade-out");
+                        header.classList.add("fade-in");
+                        content.classList.add("fade-in");
+                    }
+            
+                    setInterval(nextSlide, 2000); // Auto-slide every 10 seconds
+                </script>
+
+            </div>
+            <div class="scroll-item" id="page-2">
+
+                <div class="card-container">
+        
+                    <!-- Card 1 -->
+                    <div class="card card1">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div> <p class="card-head">We use new technology </p></div>
+                            </div>
+                            <div class="card-back">
+                                <p>Ultrices sagittis orci a scelerisque purus semper eget duis at. Sollicitudin nibh sit amet commodo nulla.</p>
+                                <button class="button-3" role="button">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Card 2 -->
+                    <div class="card card2">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div> <p class="card-head">Making Healthy Foods  </p></div>
+                            </div>
+                            <div class="card-back">
+                                <p>Ultrices sagittis orci a scelerisque purus semper eget duis at. Sollicitudin nibh sit amet commodo nulla.</p>
+                                <button class="button-3" role="button">Read More</button>                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Card 3 -->
+                    <div class="card card3">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div> <p class="card-head">Reforming In The System</p></div>
+                            </div>
+                            <div class="card-back">
+                                <p>Ultrices sagittis orci a scelerisque purus semper eget duis at. Sollicitudin nibh sit amet commodo nulla.</p>
+                                <button class="button-3" role="button">Read More</button>                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+
+            </div>
+            <div class="scroll-item" id="page-4">
+                <div class="page4-info">
+                    <p class="head1">We have 30 years of agriculture & eco farming experience</p>
+                    <p class="head2">Providing The Finest Products To The Best Feed Suppliers.</p>
+                    <p class="head3">Elders is headquartered in Adelaide, South Australia, where our story began in 1839, but our expansive network now reaches every corner of Australia.</p>
+                    <p class="head4">At Mycorrhizal Applications (MA), we are dedicated to sustainability by providing the agriculture, horticulture, landscaping, and forestry industries with efficient and effective microbial-based biorational solutions. As the world’s leading manufacturer and supplier of mycorrhizal soil inoculants, MA researches, produces, and markets mycorrhizal fungi which accelerate plant performance.</p>
+                    <button class="button">
+                        Apply Now
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                          <path
+                            fill-rule="evenodd"
+                            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                <div class="page4-count">
+                    <div class="page4-count-info">
+                        <p class="page4-count-head1">Trust By Clients</p>
+                        <p class="page4-count-head2">12,980+</p>
+                        <p class="page4-count-head3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non porttitor felis.</p>
+                    </div>
+                    <div class="page-4-img">
+                        <img class="page-4-img-info" src="images/barley.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-item">
+
+                <section class="projects">
+                    <h2 class="title">Latest Projects List</h2>
+                    <p class="description">Discover our latest work in agriculture and farming.</p>
+            
+                    <div class="project-container">
+                        <div class="project-card">
+                            <img src="images/s-project-1.jpg" alt="Agriculture - Farm">
+                            <div class="overlay">
+                                <h3 class="head-overlay">Agriculture - Farm</h3>
+                                <p class="descipt-overlay">The Joy of Sheep Farming</p>
+                                <p class="jeez">Ultrices sagittis orci a scelerisque purus semper eget duis at. Sollicitudin nibh sit amet commodo nulla.</p>
+                            </div>
+                        </div>
+            
+                        <div class="project-card">
+                            <img src="images/s-project-2.jpg" alt="The Joy of Sheep Farming">
+                            <div class="overlay">
+                                <h3 class="head-overlay">Agriculture - Farm</h3>
+                                <p class="descipt-overlay">The Joy of Sheep Farming</p>
+                                <p class="jeez">Ultrices sagittis orci a scelerisque purus semper eget duis at. Sollicitudin nibh sit amet commodo nulla.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="scroll-item" id="page-6">
+              <div>
+                 <img class="page-6-img" src="images/s-testi.png">
+              </div>
+              <div class="page-6-info">
+                <p class="page-6-info-head1">
+                    Testimonials With Us</p>
+                <p class="page-6-info-head2">What Clients Says?</p>
+                <p class="page-6-info-head3">
+                    Having been a host farmer for
+                    three seasons, we've seen
+                    firsthand the difference this
+                    internship makes in beginning
+                    farmers and host farms alike. As
+                    a farmer it is difficult to
+                    weigh the benefits of hosting
+                    young farmers. Fresh energy and
+                    enthusiasm.
+                </p>
+              </div>
+            </div>
+
+            <div class="scroll-item">
+
+                <div class="container">
+                    <div class="slideCard" id="slideOne">
+                        <img class="image" src="images/barley.png">
+                        <p class="count">1356</p>
+                        <p class="count-descript">Completed Projects</p>
+                        <div class="arrows">
+                            <img class="go" src="images/right-arrow.png">
+                            <img class="back" src="images/right-arrow (1).png">
+                        </div>
+                    </div>
+                    <div class="slideCard" id="slideTwo">
+                        <img class="image" src="images/cow.png">
+                        <p class="count">1036</p>
+                        <p class="count-descript">Animals Anda Plan</p>
+                        <div class="arrows">
+                            <img class="go" src="images/right-arrow.png">
+                            <img class="back" src="images/right-arrow (1).png">
+                        </div>
+
+                    </div>
+                    <div class="slideCard" id="slideThree">
+
+                        <img class="image" src="images/vehicle.png">
+                        <p class="count">63</p>
+                        <p class="count-descript">Years Of Experience</p>
+                        <div class="arrows">
+                            <img class="go" src="images/right-arrow.png">
+                            <img class="back" src="images/right-arrow (1).png">
+                        </div>
+                    </div>
+                    <div class="slideCard" id="slideFour">
+                        <img class="image" src="images/barley.png">
+                        <p class="count">4657</p>
+                        <p class="count-descript">Tons Of Harvest</p>
+                        <div class="arrows">
+                            <img class="go" src="images/right-arrow.png">
+                            <img class="back" src="images/right-arrow (1).png">
+                        </div>
+                    </div>
+                </div>
+            
+                <script>
+            const allCards = document.querySelectorAll(".slideCard");
+            let currentIndex = 0;
+            
+            document.addEventListener("click", (event) => {
+                const screenWidth = window.innerWidth;
+                const clickPosition = event.clientX;
+            
+                if (clickPosition > screenWidth / 2) {
+                    // Clicking right: Move and fade out
+                    if (currentIndex < allCards.length) {
+                        let activeCard = allCards[currentIndex];
+                        activeCard.style.transform = "translateX(120%)"; 
+                        activeCard.style.opacity = "0"; 
+                        currentIndex++;
+                    }
+                } else {
+                    // Clicking left: Bring back previous card
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        let returningCard = allCards[currentIndex];
+                        returningCard.style.opacity = "1"; 
+                        returningCard.style.transform = "translateX(0)"; 
+                    }
+                }
+            });
+            
+                </script>
+
+            </div>
+            <div class="scroll-item">
+                <div id="imageGlassContainer">
+                    <div id="imageGlassOverlay"></div>
+                    <h1 class="imageGlassText">AGRICULTURE IS THE MOST</h1>
+                    <h2 class="imageGlassText">HEALTHFUL, MOST USEFUL AND MOST</h2>
+                    <h2 class="imageGlassText">NOBLE EMPLOYMENT OF MAN</h2>
+                </div>
+            
+
+            </div>
+            <div class="scroll-item">
+                <footer id="customFooterSection">
+                    <div class="footerContainer">
+                        <div class="footerBrand">
+                            <h2 class="brandName">AgriFarm</h2>
+                            <p class="brandTagline">Farm of laughter and happiness!</p>
+                        </div>
+                        <div class="footerColumns">
+                            <div class="footerColumn">
+                                <h3 class="footerHeading">Contact Us</h3>
+                                <p class="footerText">Prinsengracht 1016 PM, Amsterdam</p>
+                                <p class="footerText">📞 (224) 105-986</p>
+                                <p class="footerText">📧 agriFarm@email.com</p>
+                                <p class="footerText">🕒 Mon - Sat: 8:00 AM - 8:00 PM</p>
+                            </div>
+                            <div class="footerColumn">
+                                <h3 class="footerHeading">Quick Links</h3>
+                                <ul class="footerLinks">
+                                    <li><a href="#">Learn About Us</a></li>
+                                    <li><a href="#">Services We Provide</a></li>
+                                    <li><a href="#">View Recent Projects</a></li>
+                                    <li><a href="#">Meet The Farmers</a></li>
+                                    <li><a href="#">Upcoming Events</a></li>
+                                </ul>
+                            </div>
+                            <div class="footerColumn">
+                                <h3 class="footerHeading">Subscribe Newsletter</h3>
+                                <input type="email" class="footerInput" placeholder="Enter email">
+                                <button class="footerButton">Subscribe Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        let footer = document.querySelector("#customFooterSection");
+                
+                        let observer = new IntersectionObserver(
+                            function (entries) {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) {
+                                        footer.classList.add("visible"); // Add animation when visible
+                                    }
+                                });
+                            },
+                            { threshold: 0.2 } // Trigger when at least 20% of the footer is visible
+                        );
+                
+                        observer.observe(footer);
+                    });
+                </script>
+    </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let scrollWrapper = document.querySelector(".horizontal-scroll-wrapper");
+            let scrollContent = document.querySelector(".horizontal-scroll-content");
+            let scrollAmount = 0;
+            let maxScroll = (scrollContent.scrollWidth - window.innerWidth); // Max scroll distance
+
+            scrollWrapper.addEventListener("wheel", function (event) {
+                event.preventDefault();
+                scrollAmount += event.deltaY * 2; // Adjust scroll speed
+                scrollAmount = Math.max(0, Math.min(scrollAmount, maxScroll)); // Prevent over-scrolling
+                scrollContent.style.transform = `translateX(${-scrollAmount}px)`;
+            });
+        });
+    </script>
+
+</body>
+</html>
